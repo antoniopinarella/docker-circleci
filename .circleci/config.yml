@@ -26,5 +26,11 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
       - run: 
+          name: create a file
+          command: touch /tmp/test
+      - run: 
           name: echo a user
-          command: echo $USER
+          command: echo $USER > /tmp/test
+      - run: 
+          name: cat test
+          command: cat /tmp/test
