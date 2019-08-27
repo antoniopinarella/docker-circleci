@@ -20,26 +20,13 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
-      - run: 
-          name: create a file
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            touch /tmp/test
-      - run: 
-          name: echo a user
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            echo $USER > /tmp/test
-      - run: 
-          name: cat test
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            cat /tmp/test
+        name: Creating Dummy Artifacts
+        command: |
+          echo "my artifact file" > /tmp/artifact-1;
+          mkdir /tmp/artifacts;
+          echo "my artifact files in a dir" > /tmp/artifacts/artifact-2;
+      - store_artifacts:
+          path: /tmp/artifact-1
+          destination: artifact-file
+      - store_artifacts:
+          path: /tmp/artifacts
