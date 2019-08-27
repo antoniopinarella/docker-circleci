@@ -28,18 +28,18 @@ jobs:
       - run: 
           name: create a file
           command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          touch /tmp/test
+            python3 -m venv venv
+            . venv/bin/activate
+            touch /tmp/test
       - run: 
           name: echo a user
           command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          echo $USER > /tmp/test
+            python3 -m venv venv
+            . venv/bin/activate
+            echo $USER > /tmp/test
       - run: 
           name: cat test
           command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          cat /tmp/test
+            python3 -m venv venv
+            . venv/bin/activate
+            cat /tmp/test
